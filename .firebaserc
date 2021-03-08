@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cuentasbancarias-3609e": {
+      "hosting": {
+        "GestionBancariaGarzon": [
+          "cuentasbancarias-3609e"
+        ]
+      }
+    }
+  }
+}
