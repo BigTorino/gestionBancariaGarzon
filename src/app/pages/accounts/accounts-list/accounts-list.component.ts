@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
+import { AccountsService } from 'src/app/services/accounts.service';
 
 @Component({
   selector: 'app-accounts-list',
@@ -7,18 +8,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./accounts-list.component.scss'],
 })
 export class AccountsListComponent implements OnInit {
-  items = [0, 1, 2, 3, 4];
-  constructor(private router: Router) {}
+  accounts$ = this.accountsService.accounts;
+  navigationExtras: NavigationExtras = {
+    state: {
+      value: null
+    }
+  };
+  constructor(private router: Router, private accountsService: AccountsService) {}
 
   ngOnInit(): void {}
 
   public goToEdit(item){
-    this.router.navigate(['edit']);
+    this.navigationExtras.state.value = item;
+    this.router.navigate(['edit'], this.navigationExtras);
   }
   public goToSee(item){
-    this.router.navigate(['details']);
+    this.navigationExtras.state.value = item;
+    this.router.navigate(['details'], this.navigationExtras);
   }
-  public goToDelete(item){
-    alert('Deleted');
-  } 
+  async onGoToDelete(empId: string): Promise<void> {
+    try {
+      await this.accountsService.onDeleteAccounts(empId);
+      alert('Deleted');
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
