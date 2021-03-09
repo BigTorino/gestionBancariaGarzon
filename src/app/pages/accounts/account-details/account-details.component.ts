@@ -29,8 +29,8 @@ export class AccountDetailsComponent implements OnInit {
     }
   }
 
-  public goToEdit(){
-    this.navigationExtras.state.account = this.account;
+    public goToEdit(item){
+    this.navigationExtras.state.value = item;
     this.router.navigate(['edit'], this.navigationExtras);
   }
 
