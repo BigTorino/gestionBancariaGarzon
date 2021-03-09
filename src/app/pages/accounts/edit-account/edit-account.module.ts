@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { EditAccountRoutingModule } from './edit-account-routing.module';
 import { EditAccountComponent } from './edit-account.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AccountFormModule } from 'src/app/shared/components/account-form/account-form.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     EditAccountRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AccountFormModule
   ]
 })
 export class EditAccountModule { }

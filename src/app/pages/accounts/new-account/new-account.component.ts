@@ -10,17 +10,17 @@ import { Account } from '../../../shared/models/account.interface';
   styleUrls: ['./new-account.component.scss'],
 })
 export class NewAccountComponent implements OnInit {
-  account: Account;
-  accountForm: FormGroup;
+  // account: Account;
+  // accountForm: FormGroup;
 
-  private isEmail = /\S+@\S+\.\S+/;
+  // private isEmail = /\S+@\S+\.\S+/;
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private accountsService: AccountsService
   ) {
-    this.initForm();
+    // this.initForm();
   }
 
   ngOnInit(): void {
@@ -31,35 +31,35 @@ export class NewAccountComponent implements OnInit {
     // }
   }
 
-  onSave(): void {
-    console.log('Saved', this.accountForm.value);
-    if (this.accountForm.valid) {
-      const account = this.accountForm.value;
-      const accountId = this.account?.id || null;
-      this.accountsService.onSaveAccounts(account, accountId);
-      this.accountForm.reset();
-    }
-  }
+  // onSave(): void {
+  //   console.log('Saved', this.accountForm.value);
+  //   if (this.accountForm.valid) {
+  //     const account = this.accountForm.value;
+  //     const accountId = this.account?.id || null;
+  //     this.accountsService.onSaveAccounts(account, accountId);
+  //     this.accountForm.reset();
+  //   }
+  // }
 
-  onGoBackToList(): void {
-    this.router.navigate(['list']);
-  }
+  // onGoBackToList(): void {
+  //   this.router.navigate(['list']);
+  // }
 
-  isValidField(field: string): string {
-    const validatedField = this.accountForm.get(field);
-    return !validatedField.valid && validatedField.touched
-      ? 'is-invalid'
-      : validatedField.touched
-      ? 'is-valid'
-      : '';
-  }
+  // isValidField(field: string): string {
+  //   const validatedField = this.accountForm.get(field);
+  //   return !validatedField.valid && validatedField.touched
+  //     ? 'is-invalid'
+  //     : validatedField.touched
+  //     ? 'is-valid'
+  //     : '';
+  // }
 
-  private initForm(): void {
-    this.accountForm = this.fb.group({
-      username: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.pattern(this.isEmail)]],
-      movil: ['', [Validators.required]],
-      clave: ['', [Validators.required]],
-    });
-  }
+  // private initForm(): void {
+  //   this.accountForm = this.fb.group({
+  //     username: ['', [Validators.required]],
+  //     email: ['', [Validators.required, Validators.pattern(this.isEmail)]],
+  //     movil: ['', [Validators.required]],
+  //     clave: ['', [Validators.required]],
+  //   });
+  // }
 }

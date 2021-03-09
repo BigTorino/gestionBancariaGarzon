@@ -1,0 +1,43 @@
+<form class="mt-3 col-md-8 offset-md-2" (ngSubmit)="onSave()" [formGroup]="accountForm">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" placeholder="Username" formControlName="username" [class]="isValidField('username')">
+      <!-- <div class="invalid-feedback">
+        <span *ngIf="accountForm.get('username').errors?.required">
+          This field is required.
+        </span>
+      </div> -->
+    </div>
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" placeholder="Email" formControlName="email" [class]="isValidField('email')">
+      <!-- <div class="invalid-feedback">
+        <span *ngIf="accountForm.get('email').errors?.required">
+          This field is required.
+        </span>
+      </div> -->
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" placeholder="Movil" formControlName="movil" [class]="isValidField('movil')">
+      <!-- <div class="invalid-feedback">
+        <span *ngIf="accountForm.get('email').errors?.required">
+          This field is required.
+        </span>
+        <span *ngIf="accountForm.get('email').errors?.pattern">
+          Enter a valid email.
+        </span>
+      </div> -->
+    </div>
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" placeholder="Clave" formControlName="clave" [class]="isValidField('clave')">
+      <!-- <div class="invalid-feedback">
+        <span *ngIf="accountForm.get('startDate').errors?.required">
+          This field is required.
+        </span>
+      </div> -->
+    </div>
+  </div>
+  <button type="submit" class="btn bg-dark btn-block text-light">Save</button>
+</form>
+<button type="button" class="btn btn-secondary mt-2" (click)="onGoBackToList()">Go Back to list</button>

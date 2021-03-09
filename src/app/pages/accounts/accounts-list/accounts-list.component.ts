@@ -26,9 +26,9 @@ export class AccountsListComponent implements OnInit {
     this.navigationExtras.state.value = item;
     this.router.navigate(['details'], this.navigationExtras);
   }
-  async onGoToDelete(empId: string): Promise<void> {
+  async goToDelete(item: Account): Promise<void> {
     try {
-      await this.accountsService.onDeleteAccounts(empId);
+      await this.accountsService.onDeleteAccounts(item.id);
       alert('Deleted');
     } catch (err) {
       console.log(err);
