@@ -1,6 +1,6 @@
-<div class="card mt-2">
+<div class="container table-responsive col-md-9 mt-2">
   <div class="card-header">
-    Employee Details
+    Account Details
   </div>
   <div class="card-body">
     <ul class="list-group list-group-flush">
@@ -21,6 +21,7 @@
     <button type="button" class="btn btn-outline-danger m-1 btn-sm" (click)="goToDelete()">Delete</button>
   </div>
 </div>
-<button type="button" class="btn btn-secondary mt-2" (click)="goBackToList()">Go Back to list</button>
-
-{{account | json}}
+<div class="col-md-9 mt-2" role="group">
+  <button type="button" class="btn btn-secondary mt-2 btn-sm" (click)="goBackToList()">Go Back to list</button>
+</div>
+<!-- {{account | json}} -->

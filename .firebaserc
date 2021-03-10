@@ -6,6 +6,13 @@
           "cuentasbancarias-3609e"
         ]
       }
+    },
+    "crud-angular-2b14b": {
+      "hosting": {
+        "GestionBancariaGarzon": [
+          "crud-angular-2b14b"
+        ]
+      }
     }
   }
 }
