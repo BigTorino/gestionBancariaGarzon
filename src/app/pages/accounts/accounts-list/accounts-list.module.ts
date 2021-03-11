@@ -12,4 +12,5 @@ import { AccountsListComponent } from './accounts-list.component';
     AccountsListRoutingModule
   ]
 })
+
 export class AccountsListModule { }
