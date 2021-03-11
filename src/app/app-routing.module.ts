@@ -30,6 +30,13 @@ const routes: Routes = [
         (m) => m.EditAccountModule
       ),
   },
+  {
+    path: 'bitacora',
+    loadChildren: () =>
+      import('./pages/bitacoras/bitacoras-list/bitacora-list.module').then(
+        (m) => m.BitacoraListModule
+      ),
+  },
 ];
 
 @NgModule({
