@@ -8,6 +8,7 @@ import { HeaderModule } from './shared/components/header/header.module';
 import { AngularFireModule} from '@angular/fire';
 import { AngularFirestore} from  '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
