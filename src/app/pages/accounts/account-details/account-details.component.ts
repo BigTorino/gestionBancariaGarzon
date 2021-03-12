@@ -17,6 +17,7 @@ export class AccountDetailsComponent implements OnInit {
       value: null
     }
   };
+
   constructor(private router: Router, private accountsService: AccountsService) {
     const navigation = this.router.getCurrentNavigation();
     this.account = navigation?.extras?.state?.value;
@@ -29,7 +30,7 @@ export class AccountDetailsComponent implements OnInit {
     }
   }
 
-    public goToEdit(item){
+  public goToEdit(item){
     this.navigationExtras.state.value = item;
     this.router.navigate(['edit'], this.navigationExtras);
   }
