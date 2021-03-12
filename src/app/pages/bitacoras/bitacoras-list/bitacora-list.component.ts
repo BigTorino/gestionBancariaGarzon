@@ -10,33 +10,28 @@ import { Bitacora } from '../../../shared/models/bitacora.interface';
 })
 
 export class BitacoraListComponent implements OnInit {
-
   bitacoras$ = this.bitacorasService.bitacoras;
   navigationExtras: NavigationExtras = {
-    state: {
-      value: null
-    }
-  };
+    state: {   value: null }
+};
 
-  constructor(private router: Router, private bitacorasService: BitacorasService) {}
+constructor(private router: Router, private bitacorasService: BitacorasService) {
+}
 
+ngOnInit(): void {
+}
 
-  ngOnInit(): void {
-  }
-
- public goToEdit(bitacora)  {
+public goToEdit(bitacora)  {
     this.navigationExtras.state.value = bitacora;
     this.router.navigate(['bitacora/edit'], this.navigationExtras);
-  
-  }
+}
 
-  async goToDelete(bitacora: Bitacora): Promise<void> {
+async goToDelete(bitacora: Bitacora): Promise<void> {
     try {
-      await this.bitacorasService.onDeleteBitacoras(bitacora.id);
-      alert('Deleted');
+      await this.bitacorasService.onDeleteBitacoras(bitacora);
     } catch (err) {
       console.log(err);
     }
-  }
+}
 
 }

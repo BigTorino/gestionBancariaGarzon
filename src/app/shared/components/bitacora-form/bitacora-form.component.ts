@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import { AccountsService } from 'src/app/services/accounts.service';
 import { BitacorasService } from 'src/app/services/bitacoras.service';
+import { AccountsService } from 'src/app/services/accounts.service';
+
 import { Bitacora } from '../../models/bitacora.interface';
 
 import { Account } from '../../models/account.interface';
@@ -25,7 +25,7 @@ export class BitacoraFormComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private bitacoraService: BitacorasService
-
+    
   ) {       const navigation = this.router.getCurrentNavigation();
             this.bitacora    = navigation?.extras?.state?.value;
             this.initForm();
@@ -44,11 +44,15 @@ export class BitacoraFormComponent implements OnInit {
 
   onSave(): void {
     console.log('Saved bitacora', this.bitacoraForm.value);
+
     if (this.bitacoraForm.valid) {
-      const bitacora = this.bitacoraForm.value;
-      const bitacoraId = this.bitacora?.id || null;      
-      this.bitacoraService.onSaveBitacoras(bitacora, bitacoraId);
+      const bitacora   = this.bitacoraForm.value;
+      const bitacoraId = this.bitacora?.id || null;
+
+      this.bitacoraService.onSaveBitacoras(bitacora);
       this.bitacoraForm.reset();
+    } else {
+      console.log ("fallo");
     }
   }
 

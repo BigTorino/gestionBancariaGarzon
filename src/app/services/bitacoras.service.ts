@@ -20,27 +20,28 @@ export class BitacorasService {
     this.getBitacoras();
   }
 
-  onDeleteBitacoras(id_bitacora: string): Promise<void> {
+  onDeleteBitacoras(bitacora: Bitacora): Promise<void> {
     return new Promise(async (resolve, reject) => { 
       try {
-        const result = await this.bitacorasCollection.doc(id_bitacora).delete();
+        console.log("viene fe_Ins : "+ bitacora.fe_Ins);
+        const result = await this.bitacorasCollection.doc(bitacora.id).delete();
         resolve(result);
+        console.log("result", result);
       } catch (err) {
         reject(err.message);
       }
     });
   }
 
-  onSaveBitacoras(bitacora: Bitacora, id_bitacora: string ): Promise<void> {
+  onSaveBitacoras(bitacora: Bitacora): Promise<void> {
     return new Promise(async (resolve, reject) => {
       try {
-        const id = id_bitacora || this.afs.createId();
-        console.log ("codigo de bitacora  = "+ id);
+        const id = bitacora.id || this.afs.createId();
         bitacora.id = id;
         const data = { id, ...bitacora };
+        
         const result = await this.bitacorasCollection.doc(id).set(data);
         resolve(result);
-        console.log ("resultado  = "+ result);
       } catch (err) {
         reject(err.message);
       }
@@ -54,5 +55,4 @@ export class BitacorasService {
     );
   }
   
-
 }

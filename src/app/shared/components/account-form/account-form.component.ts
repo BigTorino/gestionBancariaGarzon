@@ -25,7 +25,7 @@ export class AccountFormComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private accountsService: AccountsService,
-    private bitacoraService: BitacorasService
+
   ) {
     const navigation = this.router.getCurrentNavigation();
     this.account = navigation?.extras?.state?.value;
@@ -45,13 +45,6 @@ export class AccountFormComponent implements OnInit {
     if (this.accountForm.valid) {
       const account = this.accountForm.value;
       const accountId = this.account?.id || null;
-      // -------------------> Trabajando bitacora
-      const cadena = { 'id': '', 'co_bitacora_previa': '98' , 'co_Account': accountId, 'fe_Ins':'01/01/01'};
-      this.bitacoraService.onSaveBitacoras(cadena, null);
-      // -----------------------------------------
-
-
-      
       this.accountsService.onSaveAccounts(account, accountId);
       this.accountForm.reset();
     }
