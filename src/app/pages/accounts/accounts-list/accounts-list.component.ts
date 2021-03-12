@@ -7,7 +7,9 @@ import { AccountsService } from 'src/app/services/accounts.service';
   templateUrl: './accounts-list.component.html',
   styleUrls: ['./accounts-list.component.scss'],
 })
+
 export class AccountsListComponent implements OnInit {
+  
   accounts$ = this.accountsService.accounts;
   navigationExtras: NavigationExtras = {
     state: {
@@ -22,10 +24,12 @@ export class AccountsListComponent implements OnInit {
     this.navigationExtras.state.value = item;
     this.router.navigate(['edit'], this.navigationExtras);
   }
+
   public goToSee(item){
     this.navigationExtras.state.value = item;
     this.router.navigate(['details'], this.navigationExtras);
   }
+
   async goToDelete(item: Account): Promise<void> {
     try {
       await this.accountsService.onDeleteAccounts(item.id);

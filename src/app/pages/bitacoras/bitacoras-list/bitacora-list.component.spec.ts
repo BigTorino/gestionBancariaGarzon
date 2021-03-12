@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BitacoraListComponent } from './bitacora-list.component';
 
 describe('BitacoraListComponent', () => {

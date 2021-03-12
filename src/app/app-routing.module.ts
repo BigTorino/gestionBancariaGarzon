@@ -37,13 +37,19 @@ const routes: Routes = [
         (m) => m.BitacoraListModule
       ),
   },
-
   { 
     path: 'login', 
     loadChildren: () => 
       import('./pages/login/login.module').then(
         (m) => m.LoginModule
       ), 
+  },
+  {
+    path: 'bitacora/edit',
+    loadChildren: () =>
+      import('./pages/bitacoras/edit-bitacora/edit-bitacora.module').then(
+        (m) => m.EditBitacoraModule
+      ),
   },
 ];
 

@@ -1,1 +1,32 @@
-<p>bitacora-form works!</p>
+<div class="container col-md-11">
+  <div class="col-md-10 offset-md-1"><hr>
+
+    <form (ngSubmit)="onSave()" [formGroup]="bitacoraForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" placeholder="id" formControlName="id" [class]="isValidField('id')">
+        </div>
+
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" placeholder="id previo" formControlName="co_bitacora_previa" [class]="isValidField('co_bitacora_previa')">
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" placeholder="id user" formControlName="co_Account" [class]="isValidField('co_Account')">
+        </div>
+
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" placeholder="DD/MM/YY" formControlName="fe_Ins" [class]="isValidField('fe_Ins')">
+        </div>
+      </div>
+
+      
+      <button type="submit" class="btn bg-dark text-light col-md-2 float-right">aSave</button>
+    </form>
+
+    <button type="button" class="btn btn-secondary col-md-2 float-left" (click)="onGoBackToList()">Go Back to list</button>
+  </div>
+
+</div>

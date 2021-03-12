@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AccountFormComponent } from './account-form.component';
 
 
-
 @NgModule({
   declarations: [AccountFormComponent],
   imports: [
@@ -13,4 +12,5 @@ import { AccountFormComponent } from './account-form.component';
   ],
   exports: [AccountFormComponent]
 })
+
 export class AccountFormModule { }

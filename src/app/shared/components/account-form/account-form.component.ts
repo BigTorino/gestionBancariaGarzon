@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { AccountsService } from 'src/app/services/accounts.service';
-import { Account } from '../../models/account.interface';
+import { BitacorasService } from 'src/app/services/bitacoras.service';
 import { Bitacora } from '../../models/bitacora.interface';
+
+import { Account } from '../../models/account.interface';
 
 @Component({
   selector: 'app-account-form',
@@ -13,15 +16,16 @@ import { Bitacora } from '../../models/bitacora.interface';
 export class AccountFormComponent implements OnInit {
 
   account: Account;
-  bitacora: Bitacora;
   accountForm: FormGroup;
-
+  bitacora: Bitacora;
+  
   private isEmail = /\S+@\S+\.\S+/;
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private accountsService: AccountsService
+    private accountsService: AccountsService,
+    private bitacoraService: BitacorasService
   ) {
     const navigation = this.router.getCurrentNavigation();
     this.account = navigation?.extras?.state?.value;
@@ -30,7 +34,7 @@ export class AccountFormComponent implements OnInit {
 
   ngOnInit(): void {
     if (typeof this.account === 'undefined') {
-      this.router.navigate(['new']);
+      // this.router.navigate(['new']);  -------------------> Trabajando bitacora
     } else {
       this.accountForm.patchValue(this.account);
     }
@@ -41,6 +45,13 @@ export class AccountFormComponent implements OnInit {
     if (this.accountForm.valid) {
       const account = this.accountForm.value;
       const accountId = this.account?.id || null;
+      // -------------------> Trabajando bitacora
+      const cadena = { 'id': '', 'co_bitacora_previa': '98' , 'co_Account': accountId, 'fe_Ins':'01/01/01'};
+      this.bitacoraService.onSaveBitacoras(cadena, null);
+      // -----------------------------------------
+
+
+      
       this.accountsService.onSaveAccounts(account, accountId);
       this.accountForm.reset();
     }

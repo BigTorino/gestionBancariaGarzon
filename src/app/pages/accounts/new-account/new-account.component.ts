@@ -9,6 +9,7 @@ import { Account } from '../../../shared/models/account.interface';
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.scss'],
 })
+
 export class NewAccountComponent implements OnInit {
   // account: Account;
   // accountForm: FormGroup;

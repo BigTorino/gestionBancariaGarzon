@@ -5,11 +5,12 @@ import { BitacoraListRoutingModule } from './bitacora-list-routing.module';
 import { BitacoraListComponent } from './bitacora-list.component';
 
 
+
 @NgModule({
   declarations: [BitacoraListComponent],
   imports: [
     CommonModule,
-    BitacoraListRoutingModule,
+    BitacoraListRoutingModule
   ]
 })
 

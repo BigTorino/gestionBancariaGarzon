@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators'
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,13 +31,16 @@ export class BitacorasService {
     });
   }
 
-  onSaveBitacoras(bitacora: Bitacora, id_bitacora: string): Promise<void> {
+  onSaveBitacoras(bitacora: Bitacora, id_bitacora: string ): Promise<void> {
     return new Promise(async (resolve, reject) => {
       try {
         const id = id_bitacora || this.afs.createId();
+        console.log ("codigo de bitacora  = "+ id);
+        bitacora.id = id;
         const data = { id, ...bitacora };
         const result = await this.bitacorasCollection.doc(id).set(data);
         resolve(result);
+        console.log ("resultado  = "+ result);
       } catch (err) {
         reject(err.message);
       }
