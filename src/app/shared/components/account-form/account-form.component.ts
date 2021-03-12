@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccountsService } from 'src/app/services/accounts.service';
 import { Account } from '../../models/account.interface';
+import { Bitacora } from '../../models/bitacora.interface';
+
 @Component({
   selector: 'app-account-form',
   templateUrl: './account-form.component.html',
@@ -11,6 +13,7 @@ import { Account } from '../../models/account.interface';
 export class AccountFormComponent implements OnInit {
 
   account: Account;
+  bitacora: Bitacora;
   accountForm: FormGroup;
 
   private isEmail = /\S+@\S+\.\S+/;
