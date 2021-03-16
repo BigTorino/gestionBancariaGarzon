@@ -1,0 +1,76 @@
+<div class="container col-md-9 mt-2">
+    <p>Consultas!</p>
+    <div class="container-fluid justify-content-center">
+        <div class="row">
+            <div class="dropdown col-3">
+                <select name="bancos">
+                    <option value="bicentenario">Bicentenario</option>
+                    <option value="venezuela">Venezuela</option>
+                    <option value="mercantil">Mercantil</option>
+                </select>
+            </div>
+            <div class="dropdown col-3">
+                <select name="cuenta">
+                    <option value="ahorro">Ahorro</option>
+                    <option value="corriente">Corriente</option>
+                </select>
+            </div>
+            <div class="dropdown col-3">
+                <select name="transaccion">
+                    <option value="saldo">Saldo</option>
+                    <option value="depositos">Depositos</option>
+                    <option value="retiros">Retiros</option>
+                </select>
+            </div>
+
+            <button class="btn btn-success" type="button" aria-expanded="false">
+                Consultar
+            </button>
+        </div>
+        
+        <div class="row mt-5">
+            <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        
+    </div>
+</div>
+
+<script>
+    document.getElementById("banco").innerHTML = "Banco";
+    document.getElementById("cuenta").innerHTML = "Cuenta";
+    document.getElementById("transacciones").innerHTML = "Transacciones";
+
+    function dd_changes(change,a){
+        document.getElementById(a).innerHTML = change;
+    }
+</script>
+
